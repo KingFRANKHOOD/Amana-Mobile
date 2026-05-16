@@ -1,0 +1,32 @@
+name: Mobile CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+concurrency:
+  group: mobile-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Documentation Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate README and docs
+        run: |
+          [ -f README.md ] && echo "✓ README.md exists" || exit 1
+          [ -d docs ] && echo "✓ docs/ directory exists" || exit 1
+          [ -f docs/mobile.md ] && echo "✓ docs/mobile.md exists" || exit 1
+          echo "✓ Mobile repository documentation is complete"
