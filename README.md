@@ -1,6 +1,29 @@
-# Amana-Mobile
+# 🌾 Amana-Mobile
 
-This repository is the dedicated mobile client for the Amana escrow protocol, built with React Native and Expo.
+The official React Native mobile client for **Amana**, a decentralized escrow protocol designed to secure agricultural trade across different regions.
+
+Amana eliminates the "Trust Gap" between buyers and sellers using Soroban Smart Contracts on the Stellar network, ensuring fair trade even when parties are hundreds of miles apart.
+
+## About Amana
+
+**Amana** provides a programmable safety net for regional commodity trading:
+
+- **Smart Escrow**: Secure funds holding using cNGN/stablecoins on the Stellar network
+- **Dynamic Loss Sharing**: Negotiable risk-sharing ratios (e.g., 50/50, 70/30) for handling transit accidents
+- **Proof-of-Delivery (PoD)**: Mandatory video-based verification involving buyer and driver
+- **Automated Settlement**: Flat 1% platform fee deducted upon successful trade completion
+- **Volatility Protection**: Stellar Path Payments allow users to pay in local currency (NGN) while locking value in cNGN
+
+## Mobile Features
+
+- Wallet-based authentication via Stellar Freighter
+- Trade discovery and real-time status tracking
+- Evidence capture and IPFS upload
+- Real-time push notifications for trade events
+- Secure token storage on device
+- Offline-aware state management
+- Mediator dispute resolution
+- Driver manifest and tracking
 
 ## Tech Stack
 
@@ -12,15 +35,6 @@ This repository is the dedicated mobile client for the Amana escrow protocol, bu
 - **Notifications**: Expo Push Notifications / Firebase Cloud Messaging
 - **Secure Storage**: Expo Secure Store for token persistence
 - **Code Quality**: ESLint, Prettier, TypeScript strict mode
-
-## Features
-
-- Wallet-based authentication via Stellar
-- Trade discovery and status tracking
-- Evidence capture and upload
-- Real-time push notifications for trade events
-- Secure token storage on device
-- Offline-aware state management
 
 ## Getting Started
 
@@ -46,6 +60,7 @@ cp .env.example .env.local
 ```
 
 Configure for your environment:
+
 - `EXPO_PUBLIC_API_URL` – backend API endpoint (default: http://localhost:4000)
 - `EXPO_PUBLIC_STELLAR_NETWORK` – testnet or public network
 - `EXPO_PUBLIC_PUSH_PROVIDER` – expo or firebase
@@ -57,6 +72,7 @@ npm start
 ```
 
 Then select:
+
 - `i` for iOS Simulator
 - `a` for Android Emulator
 - `w` for web (requires `expo-web`)

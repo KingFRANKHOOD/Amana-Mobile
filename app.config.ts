@@ -10,6 +10,7 @@ const config: ExpoConfig = {
   icon: './assets/icon.png',
   userInterfaceStyle: 'light',
   newArchEnabled: true,
+  entryPoint: './src/index.tsx',
   ios: {
     supportsTabletMode: true,
     bundleIdentifier: 'com.amana.mobile',
