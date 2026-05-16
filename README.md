@@ -1,46 +1,99 @@
 # Amana-Mobile
 
-This repository is the dedicated mobile client for the Amana escrow protocol.
+This repository is the dedicated mobile client for the Amana escrow protocol, built with React Native and Expo.
 
-## Vision
+## Tech Stack
 
-The mobile app should deliver a lightweight, touch-first experience for buyers, sellers, drivers, and mediators.
-It should support trade creation, status tracking, evidence capture, dispute management, and real-time notifications.
+- **Framework**: React Native with Expo
+- **Language**: TypeScript
+- **Navigation**: React Navigation (stack-based)
+- **State Management**: Zustand for lightweight store management
+- **Wallet**: Stellar Freighter integration
+- **Notifications**: Expo Push Notifications / Firebase Cloud Messaging
+- **Secure Storage**: Expo Secure Store for token persistence
+- **Code Quality**: ESLint, Prettier, TypeScript strict mode
 
-## Recommended stack
+## Features
 
-- React Native with Expo
-- TypeScript
-- Expo Push Notifications or Firebase Cloud Messaging
-- Secure device storage for tokens
-- Offline-aware sync for intermittent connectivity
+- Wallet-based authentication via Stellar
+- Trade discovery and status tracking
+- Evidence capture and upload
+- Real-time push notifications for trade events
+- Secure token storage on device
+- Offline-aware state management
 
-## Current status
+## Getting Started
 
-This repo is currently a placeholder. The mobile backend contract and API requirements are defined in the backend repository.
+### Prerequisites
 
-## Mobile environment setup
+- Node.js 20+ / npm or yarn
+- Expo CLI: `npm install -g expo-cli`
+- iOS Simulator (on macOS) or Android Emulator
 
-Mobile environment configuration is available inside this repository.
-
-- `docs/mobile.md` contains the mobile environment setup and API requirements.
-- `.env.mobile.example` contains the mobile runtime variable template.
-
-## Getting started
-
-When the mobile client is added, use the following initial setup:
+### Install dependencies
 
 ```bash
 cd Amana-Mobile
 npm install
 ```
 
-Then configure mobile support by copying the mobile environment example into the mobile repo:
+### Environment
+
+Copy the example env file:
 
 ```bash
-cp .env.mobile.example .env.mobile
+cp .env.example .env.local
 ```
+
+Configure for your environment:
+- `EXPO_PUBLIC_API_URL` – backend API endpoint (default: http://localhost:4000)
+- `EXPO_PUBLIC_STELLAR_NETWORK` – testnet or public network
+- `EXPO_PUBLIC_PUSH_PROVIDER` – expo or firebase
+
+### Run in development
+
+```bash
+npm start
+```
+
+Then select:
+- `i` for iOS Simulator
+- `a` for Android Emulator
+- `w` for web (requires `expo-web`)
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Type check
+
+```bash
+npm run type-check
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Project structure
+
+- `src/api/` – API client and service methods
+- `src/stores/` – Zustand state management
+- `src/screens/` – Screen components
+- `src/App.tsx` – Root app component
+- `app.config.ts` – Expo configuration
+- `docs/mobile.md` – Mobile environment specifications
+
+## Backend integration
+
+See `docs/mobile.md` for mobile API requirements and environment setup.
 
 ## Notes
 
-The mobile client should use the backend authentication and trade services while keeping payloads optimized for low-bandwidth mobile users.
+- The mobile app uses the same backend authentication and trade services as the web application.
+- Payloads are optimized for low-bandwidth mobile environments.
+- Secure token storage prevents credentials from being logged or exposed.
