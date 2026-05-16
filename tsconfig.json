@@ -7,7 +7,6 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "allowJs": true,
-    "types": ["node"],
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
